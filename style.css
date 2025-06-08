@@ -10,15 +10,21 @@ body{
     background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
     overflow: hidden;
 }
-.container{
+.container {
     max-width: 440px;
     padding: 0 20px;
-    margin: 170px auto;
+    margin: 0 auto;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-.wrapper{
+
+.wrapper {
     width: 100%;
     background: #fff;
     border-radius: 5px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 .wrapper .title{
     line-height: 90px;
