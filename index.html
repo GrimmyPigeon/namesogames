@@ -7,11 +7,12 @@
   <link rel="stylesheet" href="style.css" />
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
   <div class="container">
     <div class="wrapper">
       <div class="title"><span>Login Form</span></div>
-      <form action="#">
+      <form id="loginform">
         <div class="row">
           <i class="fas fa-user"></i>
           <input type="text" placeholder="Email or Phone" required />
@@ -24,11 +25,27 @@
         <div class="row button">
           <input type="submit" value="Login" />
         </div>
-        <div class="signup-link">
-          Not a member? <a href="#">Signup here</a>
+        <div class="signup-link">Not a member?<a href="#">Signup here</a>
         </div>
       </form>
+      <script>
+        document.getElementById('loginForm').addEventListener('submit', async (e) => {
+          e.preventDefault();
+          const formData = new FormData(e.target);
+          const data = {
+            email: formData.get('email'),
+            password: formData.get('password'),
+          };
+
+        await fetch('https://your-backend.onrender.com/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data),
+          });
+        });
+      </script>
     </div>
   </div>
 </body>
+
 </html>
