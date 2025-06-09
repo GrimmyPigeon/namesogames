@@ -8,6 +8,7 @@
 
 body {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
@@ -97,4 +98,11 @@ form {
   color: #1abc9c;
   text-decoration: none;
   font-weight: 500;
+}
+
+.valid {
+  color: green;
+}
+.invalid {
+  color: red;
 }
