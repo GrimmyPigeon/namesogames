@@ -1,108 +1,18 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+.wave{
+  white-space: pre;
 }
 
-body {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  background: linear-gradient(to bottom right, #e3edf7, #cfd9e9);
+.wave span {
+  display: inline-block;
+  animation: anim 5s infinite ease-in-out;
+  opacity: 0.2;
 }
 
-.wrapper {
-  background: #ffffff;
-  border-radius: 12px;
-  padding: 40px 35px;
-  width: 100%;
-  max-width: 420px;
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-  margin: 20px;
-}
-
-.title {
-  font-size: 24px;
-  font-weight: 600;
-  color: #fff;
-  background-color: #1abc9c;
-  text-align: center;
-  padding: 15px 0;
-  border-radius: 10px 10px 0 0;
-}
-
-form {
-  margin-top: 20px;
-}
-
-.row {
-  display: flex;
-  align-items: center;
-  background: #f1f1f1;
-  border-radius: 8px;
-  padding: 10px 15px;
-  margin-bottom: 15px;
-}
-
-.row i {
-  color: #1abc9c;
-  margin-right: 10px;
-  font-size: 18px;
-}
-
-.row input {
-  flex: 1;
-  border: none;
-  outline: none;
-  background: transparent;
-  font-size: 16px;
-}
-
-.pass {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.pass a {
-  color: #1abc9c;
-  text-decoration: none;
-  font-size: 14px;
-}
-
-.row.button input {
-  background: #1abc9c;
-  border: none;
-  color: #fff;
-  font-size: 16px;
-  padding: 12px;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: 0.3s ease;
-}
-
-.row.button input:hover {
-  background: #16a085;
-}
-
-.signup-link {
-  text-align: center;
-  font-size: 14px;
-  margin-top: 15px;
-}
-
-.signup-link a {
-  color: #1abc9c;
-  text-decoration: none;
-  font-weight: 500;
-}
-
-.valid {
-  color: green;
-}
-.invalid {
-  color: red;
+@keyframes anim{
+  0%, 100%{
+    opacity: 0;
+  }
+  50%{
+    opacity: 1;
+  }
 }
