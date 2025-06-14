@@ -1,12 +1,14 @@
 .wave{
   font-size: 50px;
   white-space: pre;
+  position: relative;
 }
 
 .wave span {
   display: inline-block;
+  position: absolute;
   animation: anim 5s infinite ease-in-out;
-  opacity: 0.2;
+  opacity: 0;
 }
 
 @keyframes anim{
