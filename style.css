@@ -7,7 +7,7 @@
 .wave span {
   display: inline-block;
   position: absolute;
-  animation: anim 5s infinite ease-in-out;
+  animation: anim 3.4s infinite ease-in-out;
   opacity: 0;
 }
 
