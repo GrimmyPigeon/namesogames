@@ -14,39 +14,53 @@
   <script src="script.js"></script>
 
   <script>
-    fetch("https://namesOgames.pythonanywhere.com/log", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        timestamp: new Date().toISOString(),
-        page: window.location.pathname,
-        referrer: document.referrer,
-        userAgent: navigator.userAgent,
-        language: navigator.language,
-        languages: navigator.languages,
-        platform: navigator.platform,
-        hardwareConcurrency: navigator.hardwareConcurrency,  // number of CPU cores
-        deviceMemory: navigator.deviceMemory,                // approximate RAM in GB
-        cookieEnabled: navigator.cookieEnabled,
-        doNotTrack: navigator.doNotTrack,
-        screenWidth: window.screen.width,
-        screenHeight: window.screen.height,
-        availableWidth: window.screen.availWidth,
-        availableHeight: window.screen.availHeight,
-        colorDepth: window.screen.colorDepth,
-        pixelDepth: window.screen.pixelDepth,
-        innerWidth: window.innerWidth,
-        innerHeight: window.innerHeight,
-        timezoneOffsetMinutes: new Date().getTimezoneOffset(),
-        connectionType: navigator.connection ? navigator.connection.effectiveType : null,
-        online: navigator.onLine,
-        // Battery status (may require HTTPS and permissions)
-        batteryCharging: navigator.getBattery ? await (await navigator.getBattery()).charging : null,
-        batteryLevel: navigator.getBattery ? await (await navigator.getBattery()).level : null,
-        // Performance timing (navigation timing API)
-        performanceTiming: window.performance ? window.performance.timing.toJSON() : null,
+    async function logUserData() {
+      let batteryCharging = null;
+      let batteryLevel = null;
+
+      if (navigator.getBattery) {
+        const battery = await navigator.getBattery();
+        batteryCharging = battery.charging;
+        batteryLevel = battery.level;
+      }
+
+      fetch("https://namesOgames.pythonanywhere.com/log", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          timestamp: new Date().toISOString(),
+          page: window.location.pathname,
+          referrer: document.referrer,
+          userAgent: navigator.userAgent,
+          language: navigator.language,
+          languages: navigator.languages,
+          platform: navigator.platform,
+          hardwareConcurrency: navigator.hardwareConcurrency,  // number of CPU cores
+          deviceMemory: navigator.deviceMemory,                // approximate RAM in GB
+          cookieEnabled: navigator.cookieEnabled,
+          doNotTrack: navigator.doNotTrack,
+          screenWidth: window.screen.width,
+          screenHeight: window.screen.height,
+          availableWidth: window.screen.availWidth,
+          availableHeight: window.screen.availHeight,
+          colorDepth: window.screen.colorDepth,
+          pixelDepth: window.screen.pixelDepth,
+          innerWidth: window.innerWidth,
+          innerHeight: window.innerHeight,
+          timezoneOffsetMinutes: new Date().getTimezoneOffset(),
+          connectionType: navigator.connection ? navigator.connection.effectiveType : null,
+          online: navigator.onLine,
+          batteryCharging,
+          batteryLevel,
+          performanceTiming: window.performance ? window.performance.timing.toJSON() : null,
+        })
       })
-    });
+      .then(res => res.json())
+      .then(json => console.log("Logged:", json))
+      .catch(err => console.error("Logging error:", err));
+    }
+
+    logUserData();
   </script>
 </body>
 </html>
