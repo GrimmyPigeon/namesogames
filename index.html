@@ -14,18 +14,18 @@
   <script src="script.js"></script>
 
   <script>
-  fetch("https://b9743419-46ee-4987-8c33-ee385ee4eb36-00-2z8mfs4p0qjk.worf.replit.dev/log", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-      timestamp: new Date().toISOString(),
-      page: window.location.pathname,
-      referrer: document.referrer,
-      userAgent: navigator.userAgent
-    })
-  });
+    fetch("https://namesOgames.pythonanywhere.com/log", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        timestamp: new Date().toISOString(),
+        page: window.location.pathname,
+        referrer: document.referrer,
+        userAgent: navigator.userAgent
+      })
+    });
   </script>
 </body>
 </html>
