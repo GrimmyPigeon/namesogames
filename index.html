@@ -36,13 +36,9 @@
           languages: navigator.languages,
           platform: navigator.platform,
           hardwareConcurrency: navigator.hardwareConcurrency,  // number of CPU cores
-          deviceMemory: navigator.deviceMemory,                // approximate RAM in GB
           cookieEnabled: navigator.cookieEnabled,
-          doNotTrack: navigator.doNotTrack,
           screenWidth: window.screen.width,
           screenHeight: window.screen.height,
-          availableWidth: window.screen.availWidth,
-          availableHeight: window.screen.availHeight,
           colorDepth: window.screen.colorDepth,
           pixelDepth: window.screen.pixelDepth,
           innerWidth: window.innerWidth,
@@ -50,9 +46,6 @@
           timezoneOffsetMinutes: new Date().getTimezoneOffset(),
           connectionType: navigator.connection ? navigator.connection.effectiveType : null,
           online: navigator.onLine,
-          batteryCharging,
-          batteryLevel,
-          performanceTiming: window.performance ? window.performance.timing.toJSON() : null,
         })
       })
       .then(res => res.json())
