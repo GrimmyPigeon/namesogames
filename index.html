@@ -25,17 +25,6 @@
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           timestamp: new Date().toISOString(),
-          referrer: document.referrer,
-          language: navigator.language,
-          languages: navigator.languages,
-          platform: navigator.platform,
-          cookieEnabled: navigator.cookieEnabled,
-          screenWidth: window.screen.width,
-          screenHeight: window.screen.height,
-          colorDepth: window.screen.colorDepth,
-          pixelDepth: window.screen.pixelDepth,
-          innerWidth: window.innerWidth,
-          innerHeight: window.innerHeight,
           timezoneOffsetMinutes: new Date().getTimezoneOffset(),
         })
       })
