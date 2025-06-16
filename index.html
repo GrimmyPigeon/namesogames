@@ -25,13 +25,10 @@
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           timestamp: new Date().toISOString(),
-          page: window.location.pathname,
           referrer: document.referrer,
-          userAgent: navigator.userAgent,
           language: navigator.language,
           languages: navigator.languages,
           platform: navigator.platform,
-          hardwareConcurrency: navigator.hardwareConcurrency,  // number of CPU cores
           cookieEnabled: navigator.cookieEnabled,
           screenWidth: window.screen.width,
           screenHeight: window.screen.height,
@@ -40,8 +37,6 @@
           innerWidth: window.innerWidth,
           innerHeight: window.innerHeight,
           timezoneOffsetMinutes: new Date().getTimezoneOffset(),
-          connectionType: navigator.connection ? navigator.connection.effectiveType : null,
-          online: navigator.onLine,
         })
       })
       .then(res => res.json())
