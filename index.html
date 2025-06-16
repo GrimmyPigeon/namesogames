@@ -19,14 +19,6 @@
 
   <script>
     async function logUserData() {
-      let batteryCharging = null;
-      let batteryLevel = null;
-
-      if (navigator.getBattery) {
-        const battery = await navigator.getBattery();
-        batteryCharging = battery.charging;
-        batteryLevel = battery.level;
-      }
 
       fetch("https://namesOgames.pythonanywhere.com/log", {
         method: "POST",
