@@ -15,8 +15,8 @@ for (let i = 0; i < text.length; i++) {
 }
 
 function moveRandomly(el) {
-  const x = Math.random() * (window.innerWidth - 80);
-  const y = Math.random() * (window.innerHeight - 80);
+  const x = Math.random() * (window.innerWidth - 100);
+  const y = Math.random() * (window.innerHeight - 100);
   el.style.left = `${x}px`;
   el.style.top = `${y}px`;
 }
